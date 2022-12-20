@@ -1,16 +1,19 @@
 <div class="container">
+  <br>
   <h4>Consulta del Tiempo por Ciudad</h4>
   <div class="col-lg-6 alineacion card">
-    <form>
+    <form [formGroup]="formulario" (ngSubmit)="consultar()">
       <div class="form-group">
-        <label for="exampleInputEmail1">Email address</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        <label for="exampleInputEmail1">Ciudad</label>
+        <input type="text" class="form-control" id="exampleInputEmail1"
+        aria-describedby="emailHelp" formControlName="ciudad">
       </div>
       <div class="form-group">
-        <label for="exampleInputPassword1">Password</label>
-        <input type="password" class="form-control" id="exampleInputPassword1">
+        <label for="exampleInputPassword1">Codigo Ciudad</label>
+        <input type="text" class="form-control" id="exampleInputPassword1"
+        formControlName="codigo">
       </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="submit" class="btn btn-primary">Consultar</button>
     </form>
   </div>
   <div class="col-lg-6 alineacion">
