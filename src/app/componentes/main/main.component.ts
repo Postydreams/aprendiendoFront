@@ -9,6 +9,7 @@ export class MainComponent implements OnInit {
 
   ciudades = ['Santiago', 'Buenos Aires', 'Bogota', 'Lima', 'Sao Paulo'];
   showCiudad: boolean = true;
+  changeCss: boolean = true;
 
   constructor() { }
 
@@ -17,6 +18,10 @@ export class MainComponent implements OnInit {
 
   mostrar () {
     this.showCiudad = !this.showCiudad;
+  }
+
+  cambioCss(){
+    this.changeCss = !this.changeCss;
   }
 
 }
