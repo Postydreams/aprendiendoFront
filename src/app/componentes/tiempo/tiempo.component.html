@@ -17,6 +17,7 @@
       </div>
       <button type="submit" class="btn btn-primary">Consultar</button>
     </form>
+    <p class="text-danger" *ngIf="showError"> {{ mensajeError}} </p>
   </div>
   <div class="col-lg-6 alineacion">
     <div class="card">

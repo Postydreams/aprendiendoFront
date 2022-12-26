@@ -17,6 +17,8 @@ export class TiempoComponent implements OnInit {
   latitud: any;
   longitud: any;
   descripcion: any;
+  showError: boolean | undefined;
+  mensajeError: string | undefined;
 
   constructor(private fb: FormBuilder, private _tiempo: TemperaturaService) {
     this.iniciaFormulario();
@@ -39,6 +41,7 @@ export class TiempoComponent implements OnInit {
 
 
   consultar(){
+    this.showError = false;
     console.log("Formulario: ", this.formulario);
 
     this._tiempo.getEstadoTiempo(this.formulario.get('ciudad')?.value, this.formulario.get('codigo')?.value)
@@ -53,6 +56,10 @@ export class TiempoComponent implements OnInit {
 
 
           console.log("respuesta: ", respuesta);
+        },
+        error => {
+          this.showError = true;
+          this.mensajeError = "Error al consultar el tiempo. Intentelo nuevamente!!";
         })
   }
 }
