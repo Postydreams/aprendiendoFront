@@ -12,7 +12,9 @@ export class TemperaturaService {
   constructor(private http: HttpClient) { }
 
   getEstadoTiempo (ciudad: string, codigo: string) {
-    const url=
+    const url= `${ urlBase }?q=${ ciudad },${ codigo }&appid=${appId}`;
+
+    return this.http.get(url);
   }
 
 }

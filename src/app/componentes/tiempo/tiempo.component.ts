@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { TemperaturaService } from 'src/app/services/temperatura.service';
 
 @Component({
   selector: 'app-tiempo',
@@ -10,7 +11,7 @@ export class TiempoComponent implements OnInit {
 
   formulario!: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private _tiempo: TemperaturaService) {
     this.iniciaFormulario();
    }
 
@@ -31,5 +32,10 @@ export class TiempoComponent implements OnInit {
 
   consultar(){
     console.log("Formulario: ", this.formulario);
+
+    this._tiempo.getEstadoTiempo(this.formulario.get('ciudad')?.value, this.formulario.get('codigo')?.value)
+      .subscribe( respuesta => {
+          console.log("respuesta: ", respuesta);
+        })
   }
 }
