@@ -1,6 +1,7 @@
 <div class="container">
   <br>
   <h4>Consulta del Tiempo por Ciudad</h4>
+  <h5> {{ fecha | date: 'dd/MM/yyyy'}} </h5>
   <div class="col-lg-6 alineacion card">
     <form [formGroup]="formulario" (ngSubmit)="consultar()">
       <div class="form-group">
@@ -26,7 +27,7 @@
           <li>Descripcion: {{ descripcion }}</li>
           <li>Temperatura: {{ temperatura }}</li>
           <li>Humedad: {{ humedad}}</li>
-          <li>Ciudad: {{ name }}</li>
+          <li>Ciudad: {{ name | uppercase }}</li>
           <li>Latitud: {{ latitud }}</li>
           <li>Longitud: {{ longitud }}</li>
         </ul>

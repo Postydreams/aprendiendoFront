@@ -19,6 +19,7 @@ export class TiempoComponent implements OnInit {
   descripcion: any;
   showError: boolean | undefined;
   mensajeError: string | undefined;
+  fecha = new Date();
 
   constructor(private fb: FormBuilder, private _tiempo: TemperaturaService) {
     this.iniciaFormulario();
